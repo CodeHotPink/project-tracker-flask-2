@@ -67,13 +67,15 @@ def student_add_success():
 def get_project(project_title):
 	""" Provides the project title, description & maximum grade """
 
-	title, description, grade = hackbright.get_project_by_title(project_title)
+	title, description, max_grade = hackbright.get_project_by_title(project_title)
+	list_of_grades = hackbright.get_grades_by_title(project_title)
 
 
 	return render_template("project.html",
 							title=title,
 							description=description,
-							grade=grade)
+							max_grade=max_grade,
+							list_of_grades=list_of_grades)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
