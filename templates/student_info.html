@@ -6,5 +6,13 @@
 <body>
 		<h1>{{ first }} {{ last }} </h1>
 		<p>GitHub Account: {{ github }} </p>
+		<p>Project Grades: </p>
+		{% if rows %}
+		<ul>
+			{% for row in rows %}
+			<li>{{row[0]}}: {{row[1]}}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
 </body>
 </html>
