@@ -63,6 +63,18 @@ def student_add_success():
 	return render_template("student_add_success.html")
 
 
+@app.route("/project/<project_title>")
+def get_project(project_title):
+	""" Provides the project title, description & maximum grade """
+
+	title, description, grade = hackbright.get_project_by_title(project_title)
+
+
+	return render_template("project.html",
+							title=title,
+							description=description,
+							grade=grade)
+
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
     app.run(debug=True)
